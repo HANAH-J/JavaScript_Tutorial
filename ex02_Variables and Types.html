@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_변수와 타입</title>
+</head>
+<body>
+    <script>
+        // 자바스크립트
+        // part 1 : 프로그래밍 기본
+        // 변수, 타입, 조건과 반복, 연산자, 배열, 함수, 객체 ...
+
+        // part 2 : 자바스크립트만의 특징
+        // DOM, 이벤트
+// ---------------------------------------------------------------------------
+        // 변수와 타입
+        // 데이터를 재활용할 수 있게 저장하는 공간 => 변수
+
+        // 컴퓨터는 데이터를 저장할 때 "2진수"
+
+        // var num = 1200;
+        // console.log(num);
+
+        var str1 = '안녕';
+        var str2 = "반가워";
+        // var str3 = "ㅋㅋㅋ';
+
+        var bool1 = true;
+        var bool1 = false;
+
+        // 템플릿 + 보간표현식
+        var str3 = `안녕`;
+        var str4 = `안녕
+                    반가워`;
+        var num1 = 10;
+        var num2 = 20;
+
+        var str5 = `${num1} + ${num2} = ${num1 + num2}`;
+        
+        console.log(str5);  // 10 + 20 = 30
+
+        // 호이스팅!    => 권장X
+        // 변수 선언부를 끌어올리는 방법
+
+        // 변수 선언을 let  => 변수의 영역을 명확히 선언
+        let number1 = 10;
+
+        // const 타입 => 변경할 수 없음 => 상수
+        const number2 = 10;
+        number2 = 20;   // -> 에러발생
+    </script>
+</body>
+</html>
