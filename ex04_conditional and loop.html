@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_조건문과 반복문</title>
+</head>
+<body>
+    <script>
+        // 제어문 => 조건문 + 반복문
+        //
+        // 조건문 IF
+        let score = 50;
+        // if(score >= 60) {
+        //     console.log("합격");
+        // } else {
+        //     console.log("불합격");
+        // }
+        if(score >= 90) {
+            console.log("A등급");
+        } else if(score >= 80) {
+            console.log("B등급");
+        } else if(score >= 70) {
+            console.log("C등급");
+        } else if(score >= 60) {
+            console.log("D등급");
+        } else {
+            console.log("F등급");
+        }
+// ---------------------------------------------------------------------------
+        // 조건문 switch
+        let language = 'javascript';
+
+        switch(language) {
+            case 'java' : 
+                console.log('자바입니다.');
+                break;
+            case 'javascript' : 
+                console.log('자바스크립트입니다.');
+                break;
+            case 'python' : 
+                console.log('파이썬입니다.');
+                break;
+            case 'kotlin' : 
+                console.log('코틀린입니다.');
+                break;
+        }
+
+        let dice = 3;
+        switch(dice) {
+            case 1 :
+            case 3 :
+            case 5 :
+                console.log("홀수입니다.");
+                break;
+            case 2 :
+            case 4 :
+            case 6 :
+                console.log("짝수입니다.");
+                break;
+        }
+// ---------------------------------------------------------------------------
+        // 반복문 while, do-while, for
+        // 예시 안녕 10번 출력
+        let i = 0;
+        while(i < 10) {
+            console.log("안녕");
+            i++;
+        }
+
+        i = 0;
+        do {
+            console.log("안녕");
+            i++;
+        } while(i < 10);
+
+        for(let i=0; i<10; i++) {
+            console.log("안녕");
+        }
+
+// ---------------------------------------------------------------------------
+        // 점프문 break, continue, return(함수 종료), throw(예외 처리)
+
+        // break     : 반복을 멈춰라!   -> 빠져 나가라
+        // continue  : 반복을 멈춰라!   -> 다시 조건을 확인해라
+
+        for(let i=0; i<10; i++) {
+            if(i == 5) {
+                // break;
+                continue;
+            }
+            console.log(i);
+        }
+        console.log('반복 끝!');
+
+        a:for(let i=1; i<=10; i++) {
+            b:for(let j=1; j<=10; j++) {
+                if(j == 5) {
+                    // break;  // 안쪽 반복만 빠져 나가는구나!
+                    break a;   // a 라벨이 붙은 반복을 빠져나가라!
+                }
+                console.log('i : ' + i);
+                console.log('j : ' + j);
+            }
+        }
+    </script>
+</body>
+</html>
