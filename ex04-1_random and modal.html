@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-1_임의의 값과 모달창</title>
+</head>
+<body>
+    <script>
+        // 1. 임의의 값 생성
+        Math.random();
+// 0.0 <= Math.random() < 1.0                                  // 임의의 실수 0. ~
+
+        (Math.random()*45);
+// 0.0*45 <= (Math.random()*45) < 1.0*45
+// 0.0*   <= (Math.random()*45) < 45.0                         // 임의의 실수 0. ~ 44.99999
+
+        Math.floor(Math.random()*45);
+// 0 <= Math.floor(Math.random()*45) < 45                      // 임의의 정수 0 ~ 44
+
+        Math.floor(Math.random()*45) + 10;
+// 0 + 10 <= Math.floor(Math.random()*45) + 10 < 55            // 임의의 정수 10 ~ 54
+
+        Math.floor(Math.random()*35) + 10;                     // 임의의 정수 10 ~ 44
+        Math.floor(Math.random()*(45-10)) + 10;
+
+    let x = Math.floor(Math.random()*(45-10+1)) + 10;              // 임의의 정수 10 ~ 45
+
+        // 임의의 숫자 범위 구하기
+        // Math.floor(Math.random()*(최대값-최소값+1)) + 최소값;   // 최소값 <= x <= 최대값
+
+    // 2. 데이터 입력 받기 <= 모달창!
+                             // 팝업창이면서 본 화면의 흐름을 막는 창
+    // 1) 경고창 : alert(문자열);
+    alert('밥은 먹었니?');
+
+    // 2) 확인창 : confirm(문자열); : 확인(true), 취소(false);
+    let bool = confirm('밥은 먹었니?');
+    console.log(bool);
+
+    // 3) 입력창 : prompt(문자열); : '문자열'을 입력받는 창
+    let data1 = prompt('방금 먹은 점심은 무엇이니?');
+    console.log(data1);
+
+    let data2 = prompt('오라클 점수가 몇 점인가요?');
+    console.log(typeof data2);
+    console.log(typeof Number(data2));      // 문자열을 숫자로 변환 => NaN(숫자로 변환할 수 없는 문자열)
+    console.log(typeof parseInt(data2));    // 문자열을 정수로 변환
+    console.log(typeof parseFloat(data2));  // 문자열을 실수로 변환
+
+    // 국어, 영어, 수학 점수를 입력받아서 총점과 평균을 팝업창으로 보여주세요.
+    let kor = Number(prompt('국어 점수'));
+    let eng = Number(prompt('영어 점수'));
+    let math = Number(prompt('수학 점수'));
+
+    let tot = (kor + eng + math);
+    let avg = tot/3;
+
+    alert('총점 : ' + tot + '\n평균 : ' + avg);
+    </script>
+</body>
+</html>
