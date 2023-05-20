@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_함수</title>
+</head>
+<body>
+    <script>
+        // 함수
+        // 1) 함수의 이름
+        // 2) 함수의 매개변수 -> 매개값, 매개데이터, 인자, 파라미터
+        // 3) 함수의 반환값
+
+        // 1. 함수를 만드는 법
+        function greeting() {
+            console.log('안녕하세요.');
+        }
+
+        greeting();
+
+        // 2. 함수의 파라미터 -> 매개변수의 의미와 작성법
+        function square(a) {
+            console.log(a*a);
+        }
+
+        square(5);  // 25
+
+        // 3. 함수의 반환값 -> 반환값의 의미와 작성법
+        function rectangle(a, b) {
+            return a*b;
+        }
+
+        let result = rectangle(3, 7);
+        console.log('사각형의 넓이 : ' + result);
+
+        if(rectangle(3, 7) >= 20) { // => 함수의 결과와 연산식의 결과 -> 평가값
+            console.log('사각형의 넓이는 20보다 크다.');
+        }
+
+        // 4. 함수의 데이터화
+        function method() {
+            console.log('나는 함수다!');
+        }
+        
+        let str1 = method();
+        // 함수의 실행결과를 str1에 저장
+        let str2 = method;
+        // 함수를 str2에 저장 => 함수 자체를 변수에 할당할 수 있다.
+        str2();
+
+        let method2 = function() {
+            console.log('나도 함수다!');
+        }
+        method2();
+        // JAVA에서는 익명구현객체
+
+        let method3 = (a) => {console.log(a);}  // 화살표 함수
+        // JAVA 람다식 () -> {}
+        method3(10);
+
+// ---------------------------------------------------------------------------
+        // 함수는 기능적으로 독립된 대상물이므로
+        // 전역변수를 함수 내에서 사용하는 것은 독립성에 위배된다.
+
+        let a = 100;
+
+        // 1) 함수의 독립성 위반
+        function f1() {
+            return a * 10;  // 위와 같이 사용하지 말 것!
+        }
+        f1();
+
+        // 2)
+        let b = 100;
+        function f2(c) {
+            return c * 10;
+        }
+        f2(b);
+    </script>
+</body>
+</html>
