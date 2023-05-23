@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_DOM</title>
+</head>
+<body>
+    <div id="box" class="divBox">
+        <h2>DOM이란?</h2>
+        <p><strong>문서 객체 모델</strong>의 줄임말이다.</p>
+    </div>
+
+    <script>
+        // DOM - 문서 객체 모델
+        // HTML 태그요소를 하나하나 객체화한 것 => 문서 객체 모델
+
+        // 자바스크립트에서 HTML 요소를 제어하려면 스크립트의 영역으로 가져와야 한다.
+
+        // 1. 객체화 된 태그요소를 선택할 수 있어야 한다.
+        // 1) id 속성값을 통해서 가져오기
+        // document.getElementById('아이디값');
+        let a1 = document.getElementById('box');
+        console.log(a1);
+
+        // 2) class 속성값을 통해서 가져오기
+        // document.getElementsByClassName('divBox');
+        let a2 = document.getElementsByClassName('divBox')[0];
+        console.log(a2);
+
+        // 3) 태그이름을 통해서 가져오기
+        // document.getElementsByTagName('div');
+        let a3 = document.getElementsByTagName('div')[0];
+        console.log(a3);
+
+        // 4) CSS의 선택자로 가져오기
+        let a4 = document.querySelector('#box');
+        console.log(a4);
+
+        // 2. 태그의 컨텐트 제어    <태그>컨텐트</태그>
+        // 1) innerHTML : 태그요소의 컨텐트를 읽고 쓸 수 있는 프로퍼티
+        console.log(a1.innerHTML);
+        // - 컨텐트가 태그요소를 포함하고 있는 경우 태그요소로써 동작
+
+        // 2) textContent : 태그요소의 컨텐트를 텍스트로써 읽고 쓸 수 있는 프로퍼티
+
+        // 3. 태그요소의 속성(Attribute) 제어
+        // 1) 속성을 부여하기   + 변경
+        // a1.setAttribute('이름', '값');
+        a1.setAttribute('style', 'background-color: aqua');
+
+        // 2) 속성의 값 읽어오기
+        // let b1 = a1.getAttribute('이름');
+        let b1 = a1.getAttribute('style');
+        console.log(b1);
+
+        // 3) 속성 지우기
+        // a1.removeAttribute('이름');
+    </script>
+</body>
+</html>
