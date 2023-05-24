@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_새로운 노드 만들기</title>
+</head>
+<body>
+    <div id="parent">
+        <p id="html">HTML</p>
+        <p id="css">CSS</p>
+    </div>
+    <script>
+        // 새로운 노드 만들기 createElement('태그명');
+        let p1 = document.createElement('p');   // <p></p>
+        p1.innerHTML = '자바스크립트';  // <p>자바스크립트</p>
+        p1.setAttribute('class', 'greeting');   // <p class="greeting">자바스크립트</p>
+
+        // 새로운 노드를 만들었다면 DOM 트리에 추가해야 화면에서 볼 수 있다.
+        // 새로운 노드를 추가하기 위해서는 기존 노드에 추가해야 한다.
+
+        let div = document.getElementById('parent');
+        // - 막내 자식요소로  끼워넣기 : appendChild();
+        // div.appendChild(p1);
+
+        // - 형제 요소 중간에 끼워넣기 : insertBefore(끼워넣을노드, 형제노드);
+        div.insertBefore(p1, div.children[1]);
+
+        // - 자식 요소 제거하기
+        // div.removechild(제거하고 싶은 자식요소);
+    </script>
+</body>
+</html>
