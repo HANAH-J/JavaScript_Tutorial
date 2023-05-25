@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11_특별한 속성</title>
+    <style>
+        .a{
+            color: crimson;
+        }
+        .b{
+            background-color: aqua;
+        }
+        .c{
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>안녕하세요</p>
+    </div>
+    <div>
+        <p class="">[]Hello Javascript!</p>
+        <p class="a">[a]Hello Javascript!</p>
+        <p class="b">[b]Hello Javascript!</p>
+        <p class="c">[c]Hello Javascript!</p>
+        <p class="a b">[a b]Hello Javascript!</p>
+        <p class="a c">[a c]Hello Javascript!</p>
+        <p class="b c">[b c]Hello Javascript!</p>
+        <p class="a b c">[a b c]Hello Javascript!</p>
+        <p class="" id="test">[]Hello Javascript!</p>
+    </div>
+    <div>
+        <p id="classChange">여러분 고생했습니다.</p><br>
+        <button onclick="toggleA()">A</button>
+        <button onclick="toggleB()">B</button>
+        <button onclick="toggleC()">C</button>
+    </div>
+    <script>
+        // 속성 중에는 특별한 속성이 있다.
+        let box = document.getElementById('box');
+        // 1. style : 특정 요소에 스타일을 부여할 때 사용하는 속성
+        // box.style.프로퍼티 = '';
+        box.style.color = 'crimson';
+        // 프로퍼티 이름이 -(하이픈)으로 되어 있다면 바꿔서 사용해야 한다.
+        // box.style.background-color  (X)
+        // box.style.backgroundColor   (O)
+        box.style.backgroundColor = 'aqua';
+
+        // 2. class 라는 속성은 띄어쓰기를 통해서 여러 클래스 값을 적용할 수 있다.
+        let test = document.getElementById('test');
+        // test.setAttribute('class', 'a');    // class 속성에 a를 적용
+        // test.setAttribute('class', 'b');    // class 속성을 b로 변경
+
+        // test.classList   클래스 값 목록 확인
+        // add(값)  클래스에 '값' 추가
+        // remove(값)   클래스에서 '값' 제거
+
+        test.classList.add('a');
+        test.classList.add('b');
+        test.classList.add('c');
+        test.classList.remove('b');
+
+        test.classList.toggle('c'); //클래스에 값이 있다면 제거, 없다면 추가
+
+        function toggleA(){
+            let p = document.getElementById('classChange');
+            p.classList.toggle('a');
+        }
+        function toggleB(){
+            let p = document.getElementById('classChange');
+            p.classList.toggle('b');
+        }
+        function toggleC(){
+            let p = document.getElementById('classChange');
+            p.classList.toggle('c');
+        }
+    </script>
+</body>
+</html>
