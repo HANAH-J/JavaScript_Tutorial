@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13_몇몇 추가 기능</title>
+</head>
+<body>
+    <script>
+        // 타이머 : '이벤트'
+
+        // 일정 시간이 지난 후 함수를 한 번만 실행
+        // setTimeout(함수, 시간);
+        // 시간 밀리 초(천분의 일 초)
+        function timeCheck(){
+            console.log(new Date());
+        }
+        // setTimeout(timeCheck, 3000);
+        // [일반적인 사용법]
+        // setTimeout(function(){
+        //     console.log(new Date());
+        // }, 2000);
+
+        // 일정 시간이 지난 후 함수를 반복적으로 실행
+        // setInterval(timeCheck, 2000);
+        // [일반적인 사용법]
+        setInterval(function(){ // 이름없이 이벤트의 조건수행으로 동작되는 함수 : 콜백함수
+            console.log(new Date());
+        }, 2000);
+    </script>
+</body>
+</html>
