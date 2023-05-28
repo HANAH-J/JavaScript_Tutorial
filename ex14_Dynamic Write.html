@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14_화면 동적으로 기록하기</title>
+</head>
+<body>
+    <div id="box">
+        <p>반갑습니다.</p>
+    </div>
+
+    <button type="button" onclick="documentWrite()">Write</button>
+    <button type="button" onclick="documentInner()">innerHTML</button>
+    <script>
+        function documentWrite(){
+            document.write('<p>안녕하세요.</p>');
+        }
+        function documentInner(){
+            let box = document.getElementById('box');
+
+            let p = document.createElement('p');
+            p.innerHTML = '안녕하세요.';
+
+            box.appendChild(p);
+        }
+    </script>
+</body>
+</html>
