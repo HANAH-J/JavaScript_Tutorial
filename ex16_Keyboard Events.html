@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키보드 이벤트</title>
+</head>
+<body>
+    <h2>키보드 이벤트</h2>
+    <p id="p"></p>
+
+    <script>
+        window.onload = function(){
+            document.addEventListener('keydown', presskeyInfo, false);
+        }
+
+        function presskeyInfo(e){
+            let p = document.getElementById('p');
+
+            let specialKey = ["altKey", "ctrlKey", "shiftKey", "key", "code", "keyCode"];
+            let str = "";
+
+            for(let i in specialKey){
+                str += specialKey[i] + " : " + e[specialKey[i]] + "<br>";
+            }
+
+            // 키보드 이벤트 객체의 프로퍼티
+            // e.altKey     => alt가 눌러졌는지 판단 논리값
+            // e.ctrlKey    => ctrl이 눌러졌는지 판단 논리값
+            // e.shiftKey   => shift가 눌러졌는지 판단 논리값
+            // e.metaKey    => Window키가 눌러졌는지 판단 논리값
+            // e.key        => 눌린 키의 문자열
+            // e.keyCode    => 눌린 키의 키코드
+            // e.code       => 눌린 키가 키보드에서 차지하는 물리적 위치 문자열
+
+            // 객체의 프로퍼티값
+            // - 객체.프로퍼티
+            // - 객체["프로퍼티"]
+
+            p.innerHTML = str;
+        }
+    </script>
+</body>
+</html>
