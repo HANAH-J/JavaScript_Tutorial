@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이벤트</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .vbox{
+            display: inline-block;
+            position: absolute;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>박스 옮기기</h2>
+    <script>
+        window.onload = function(){
+            let box = document.createElement('div');
+            box.classList.add('vbox');
+            box.innerHTML = "나를 옮겨주세요.";
+
+            document.body.appendChild(box);
+
+            let boxOffsetX, boxOffsetY;
+            box.addEventListener("mousedown", function(e){
+                document.addEventListener("mousemove", boxMoveListener, false);
+                boxOffsetX = e.offsetX; // 박스요소 내부의 마우스 포인터 위치 X좌표
+                boxOffsetY = e.offsetY  // 박스요소 내부의 마우스 포인터 위치 Y좌표
+            }, false);
+
+            box.addEventListener("mouseup", function(e){
+                document.removeEventListener("mousemove", boxMoveListener, false);
+            }, false);
+
+            function boxMoveListener(e){ // 박스의 이동 경로를 계산
+                box.style.left = e.pageX - boxOffsetX + "px"; // 박스 왼쪽 상단 모서리 좌표
+                box.style.top = e.pageY - boxOffsetY + "px";
+            }
+        }
+    </script>
+</body>
+</html>
