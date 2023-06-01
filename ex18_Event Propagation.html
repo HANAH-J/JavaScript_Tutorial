@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 전파</title>
+    <style>
+        div{
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        #outer{
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #inner{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        outer
+        <div id="inner">Inner</div>
+    </div>
+    <script>
+        window.onload = function(){
+            let outer = document.getElementById('outer');
+            let inner = document.getElementById('inner');
+
+            outer.addEventListener('click', function(e){
+                console.log('Outer! Capturing');
+            }, true); // 들어갈 때 이벤트 발생
+
+            outer.addEventListener('click', function(e){
+                console.log('Outer! Bubbling');
+            }, false); // 나올 때 이벤트 발생
+             
+            // true면 들어갈 때 부모이벤트 실행 : 캡처링 동작
+            // false면 나올 때 부모이벤트 실행 : 버블링 동작
+
+            inner.addEventListener('click', function(e){
+                console.log('Inner!');
+                e.stopPropagation(); // 이벤트 전파 차단! -> 이벤트가 타겟에 도달하면 끝!
+                e.stopImmediatePropagation(); // 이벤트 일시정지
+            }, false);
+        }
+    </script>
+</body>
+</html>
