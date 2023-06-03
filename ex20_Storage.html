@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>저장소</title>
+</head>
+<body>
+    <script>
+        // 웹 브라우저 저장소 : storage - 도메인을 기준으로 데이터를 저장
+        // 쿠키 : 서버가 필요한 정보를 클라이언트에게 임시 저장하는 공간
+
+        // sessionStorage => 세션이 유지되는 동안에만 저장하는 공간
+        // localStorage   => 브라우저가 삭제되기 전까지 유지되는 저장공간
+
+        // 정보를 저장 -> 데이터 => CRUD
+        // C : create   데이터 생성
+        // R : read     데이터 조회
+        // U : update   데이터 수정
+        // D : delete   데이터 삭제
+
+        // 1) create : 정보 저장 => setItem('키', '값');
+        sessionStorage.setItem('name', '홍길동');
+
+        // 2) read : 저장된 데이터 읽어오기 => getItem('키');
+        let username = sessionStorage.getItem('name');
+        console.log('이름 : ' + username);
+
+        // 3) update : 저장된 데이터 수정하기 => setItem('키', '값'); (이미 키가 존재하는 경우)
+        sessionStorage.setItem('name', '고길동');
+
+        // 4) delete : 저장된 데이터 삭제하기 => removeItem('키');
+        sessionStorage.removeItem('name');
+
+        // 5) 저장된 모든 데이터 한 번에 삭제하기 => clear();
+        sessionStorage.setItem('name', '홍길동');
+        sessionStorage.setItem('age', '28');
+        sessionStorage.setItem('job', '의적');
+        sessionStorage.setItem('nation', '조선');
+
+        sessionStorage.clear();
+
+        // ---------------------------------------------------------------------------
+        // localStorage도 사용법은 똑같다. setItem, getItem, removeItem, clear
+        localStorage.setItem('name', '홍길동');
+
+        // ---------------------------------------------------------------------------
+        // 저장 유지 범위
+        sessionStorage.setItem('name', '고길동');
+        localStorage.setItem('name', '박길동');
+    </script>
+</body>
+</html>
