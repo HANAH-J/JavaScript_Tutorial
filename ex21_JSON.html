@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <script>
+        // 웹 브라우저 저장소 응용(배열이나 객체를 저장하는 방법)
+        // 웹 브라우저 저장소 => 문자열 데이터를 저장
+        sessionStorage.setItem('age', 37);
+        let age = sessionStorage.getItem('age');
+
+        console.log(typeof age);
+
+        // ---------------------------------------------------------------------------
+        // [JSON 객체]
+
+        // 하나의 프로그램을 만들 때
+        // 여러 언어를 복합적으로 사용해서 만드는 경우가 존재
+        // ex) 웹개발
+        //     프론트엔드   : javascript
+        //     백엔드       : java
+
+        // javascript로 만든 데이터 -----> java로 보낸다.
+        // java로 만든 데이터 -----> javascript로 보낸다.
+        // 서로 다른 언어가 만든 데이터를 읽을 수 있을까?
+        // => 서로 다른 언어가 데이터를 주고받기 위한 표준
+        // 1) XML
+        // 2) JSON => 객체의 데이터를 문자열로
+
+        // 브라우저에 객체 데이터를 저장할 때 문자열로 전환해서 저장
+        // 예시 : 배열 객체를 웹 브라우저 저장소에 저장
+        let arr = [2, 4, [2, 4], '이름'];
+
+        sessionStorage.setItem('arr', JSON.stringify(arr));
+                    // JSON 객체로 변환하는 법 JSON.stringify();
+
+        let arr2 = JSON.parse(sessionStorage.getItem('arr')); // '2, 4, 2, 4, 이름'
+                    // JSON 객체를 다시 되돌리는 법 : JSON.parse();
+        console.log(arr2);
+
+        // 단, 메서드는 예외
+    </script>
+</body>
+</html>
